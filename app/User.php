@@ -10,6 +10,7 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+TESTANDO COMMIT COM GIT REMOTO
      * The attributes that are mass assignable.
      *
      * @var array
