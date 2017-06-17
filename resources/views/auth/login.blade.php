@@ -40,6 +40,9 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                <a  href="/auth/facebook" class="btn btn-block btn-social btn-facebook" style="max-width: 345px">
+                                    <span class="fa fa-facebook"></span> Logar com o Facebook
+                                </a>
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
@@ -48,11 +51,13 @@
                             </div>
                         </div>
 
+
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
+
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?

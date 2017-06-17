@@ -16,7 +16,7 @@ TESTANDO COMMIT COM GIT REMOTO
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'facebook_id'
     ];
 
     /**

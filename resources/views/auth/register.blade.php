@@ -59,6 +59,14 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label"></label>
+                            <div class="col-md-6">
+                                <a  href="/auth/facebook" class="btn btn-block btn-social btn-facebook" style="max-width: 345px">
+                                    <span class="fa fa-facebook"></span> Registrar com o Facebook
+                                </a>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -66,6 +74,7 @@
                                     Register
                                 </button>
                             </div>
+
                         </div>
                     </form>
                 </div>
