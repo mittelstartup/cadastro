@@ -61,9 +61,16 @@
                 <li>
                     <a class="page-scroll" href="#contact">Contact</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="/register">Cadastre-se</a>
-                </li>
+                @if(Auth::guest())
+                    <li>
+                        <a class="page-scroll" href="/login">Login</a>
+                    </li>
+                @else
+                    <li>
+                        <a class="page-scroll" href="/home">Dashboard</a>
+                    </li>
+
+                @endif
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -76,7 +83,7 @@
     <div class="container">
         <div class="intro-text">
             <div class="intro-heading">Cadastre-se </div>
-            <a href="#services" class="page-scroll btn btn-xl">AQUI</a>
+            <a href="/register" class="page-scroll btn btn-xl">AQUI</a>
         </div>
     </div>
 </header>
