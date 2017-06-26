@@ -14,9 +14,9 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('bower_components/jquery-file-upload/css/jquery.fileupload.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
@@ -68,15 +68,75 @@
 
 <header>
     <div class="header-content">
-        <div class="header-content-inner">
+        <div class="header-content-inner" style="background-color: black; opacity: 0.85">
             <h1 id="homeHeading">Obrigado por se cadastrar</h1>
             <hr>
-            <p>Estamos trabalhando para que a plataforma fique pronta mais rápida possível! Agradecemos o seu apoio e por acreditar na nossa idéia!</p>
+            <p>Estamos trabalhando para que a plataforma fique pronta mais rápida possível!
+                Agradecemos o seu apoio e por acreditar na nossa idéia!
+            @if(count($user->comprovantematricula) == 0)
+                <br><h3>Por gentileza anexe seu comprovante de matrícula autenticado abaixo.</h3></p>
+            <span class="btn btn-success fileinput-button">
+                <span>Selecionar Comprovante de Matrícula</span>
+                <!-- The file input field used as target for the file upload widget -->
+				        <input id="fileupload" type="file" name="documento"
+                        data-token = "{{csrf_token()}}"
+                        data-user-id = "{{Auth::user()->id}}" accept="application/pdf">
+				    </span>
+
+            <br>
+            <br>
+            @else
+            <table class="table">
+                <tbody>
+                @foreach($user->comprovantematricula as $file)
+                    <tr>
+                        <td><a href="view/{{$file->user_id}}/{{$file->id}}">{{$file->arquivo}}</a></td>
+                        <td><a href="removeranexo/{{$file->user_id}}/{{$file->id}}" style=" opacity: 1 !important;" class=" btn btn-danger">Remover anexo</a> </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            @endif
+            <!-- The global progress bar -->
+            <div id="progress" class="progress" style="display: none">
+                <div class="progress-bar progress-bar-success"></div>
+            </div>
         </div>
+
     </div>
+
 </header>
 
 
 </body>
+    <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js') }}"></script>
+    <script src="{{ asset('bower_components/jquery-file-upload/js/jquery.fileupload.js') }}"></script>
 
+    <script>
+        ;(function($)
+        {
+            'use strict';
+            $(document).ready(function(){
+                var $fileupload     = $('#fileupload');
+                $fileupload.fileupload({
+                    url: '/estariario/upload',
+                    formData: {_token: $fileupload.data('token'),  userId: $fileupload.data('userId')},
+
+                    progressall: function (e, data) {
+                        document.getElementById('progress').style = 'block';
+                        var progress = parseInt(data.loaded / data.total * 100, 10);
+                        $('#progress .progress-bar').css(
+                            'width',
+                            progress + '%'
+                        );
+                    },
+                    done: function (e, data) {
+                        location.reload();
+                    }
+                });
+            });
+        })(window.jQuery);
+    </script>
 </html>

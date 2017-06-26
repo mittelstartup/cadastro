@@ -105,7 +105,7 @@ class RegisterController extends Controller
         }
         auth()->login($user);
 
-        return view('/dashboard/dashboard');
+        return redirect('/home');
 
 
         // $user->token;

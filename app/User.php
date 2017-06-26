@@ -10,7 +10,6 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-TESTANDO COMMIT COM GIT REMOTO
      * The attributes that are mass assignable.
      *
      * @var array
@@ -27,4 +26,11 @@ TESTANDO COMMIT COM GIT REMOTO
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    //Relationships
+
+    public function comprovantematricula(){
+        return $this->hasMany('App\Models\ComprovanteMatricula');
+    }
 }

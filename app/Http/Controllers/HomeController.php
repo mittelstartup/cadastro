@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/dashboard/dashboard');
+        $userId = Auth::user()->id;
+
+        $user = User::with('comprovantematricula')->find($userId);
+
+        return view('/dashboard/dashboard')->with(compact('user'));
     }
 }
