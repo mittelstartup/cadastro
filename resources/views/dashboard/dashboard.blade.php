@@ -80,7 +80,7 @@
                 <!-- The file input field used as target for the file upload widget -->
 				        <input id="fileupload" type="file" name="documento"
                         data-token = "{{csrf_token()}}"
-                        data-user-id = "{{Auth::user()->id}}">
+                        data-user-id = "{{Auth::user()->id}}" accept="application/pdf">
 				    </span>
 
             <br>
