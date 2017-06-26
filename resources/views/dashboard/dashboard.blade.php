@@ -68,7 +68,7 @@
 
 <header>
     <div class="header-content">
-        <div class="header-content-inner" style="background-color: black; opacity: 0.9">
+        <div class="header-content-inner" style="background-color: black; opacity: 0.85">
             <h1 id="homeHeading">Obrigado por se cadastrar</h1>
             <hr>
             <p>Estamos trabalhando para que a plataforma fique pronta mais rápida possível!
