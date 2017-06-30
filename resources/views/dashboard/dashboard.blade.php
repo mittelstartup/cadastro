@@ -84,7 +84,7 @@
                         <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Curso" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
             </div>
             </p>
@@ -136,7 +136,7 @@
             $(document).ready(function(){
                 var $fileupload     = $('#fileupload');
                 $fileupload.fileupload({
-                    url: '/estagiario/upload',
+                    url: '{{url('/estagiario/upload')}}',
                     formData: {_token: $fileupload.data('token'),  userId: $fileupload.data('userId')},
 
                     progressall: function (e, data) {
