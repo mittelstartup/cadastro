@@ -73,8 +73,24 @@
             <hr>
             <p>Estamos trabalhando para que a plataforma fique pronta mais rápida possível!
                 Agradecemos o seu apoio e por acreditar na nossa idéia!
+            <div class="row" style="width: 50%; margin-left: auto;margin-right: auto;">
+                <form action="/estagiario/infos" method="post">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <label for="instituicao">Instituição de Ensino</label>
+                        <input type="text" name="instituicao" value="{{$user->infos->instituicao}}" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="curso">Curso</label>
+                        <input type="text" class="form-control" id="curso" value="{{$user->infos->curso}}" name="curso" placeholder="Curso" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            </p>
             @if(count($user->comprovantematricula) == 0)
-                <br><h3>Por gentileza anexe seu comprovante de matrícula autenticado abaixo.</h3></p>
+                <br><h3>Por gentileza anexe seu comprovante de matrícula autenticado abaixo.</h3>
             <span class="btn btn-success fileinput-button">
                 <span>Selecionar Comprovante de Matrícula</span>
                 <!-- The file input field used as target for the file upload widget -->
@@ -121,7 +137,7 @@
             $(document).ready(function(){
                 var $fileupload     = $('#fileupload');
                 $fileupload.fileupload({
-                    url: '/estariario/upload',
+                    url: '/estagiario/upload',
                     formData: {_token: $fileupload.data('token'),  userId: $fileupload.data('userId')},
 
                     progressall: function (e, data) {
