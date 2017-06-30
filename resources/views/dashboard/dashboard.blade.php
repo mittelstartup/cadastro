@@ -73,7 +73,7 @@
             <hr>
             <p>Agradecemos o seu apoio e por acreditar na nossa idéia!
             <div class="row" style="width: 50%; margin-left: auto;margin-right: auto;">
-                <form action="/estagiario/infos" method="post">
+                <form action="{{url('/estagiario/infos')}}" method="post">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="instituicao">Instituição de Ensino</label>
