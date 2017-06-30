@@ -71,18 +71,17 @@
         <div class="header-content-inner" style="background-color: black; opacity: 0.85">
             <h1 id="homeHeading">Obrigado por se cadastrar</h1>
             <hr>
-            <p>Estamos trabalhando para que a plataforma fique pronta mais rápida possível!
-                Agradecemos o seu apoio e por acreditar na nossa idéia!
+            <p>Agradecemos o seu apoio e por acreditar na nossa idéia!
             <div class="row" style="width: 50%; margin-left: auto;margin-right: auto;">
                 <form action="/estagiario/infos" method="post">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="instituicao">Instituição de Ensino</label>
-                        <input type="text" name="instituicao" value="{{$user->infos->instituicao}}" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
+                        <input type="text" name="instituicao" value="@if(@$user->infos->instituicao){{@$user->infos->instituicao}}@endif" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
                     </div>
                     <div class="form-group">
                         <label for="curso">Curso</label>
-                        <input type="text" class="form-control" id="curso" value="{{$user->infos->curso}}" name="curso" placeholder="Curso" required>
+                        <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Curso" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
