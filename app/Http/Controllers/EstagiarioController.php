@@ -22,13 +22,18 @@ class EstagiarioController extends Controller
 
         $user = User::find(Auth::user()->getAuthIdentifier());
         if(count($info = Infos::where('user_id', $user->id)->get()) > 0){
-            DB::table('info_estagiario')->where('user_id', '=',  $user->id)->delete();
+            $id= $info[0]->id;
+            $info = Infos::find($id);
+            $info->curso = $curso;
+            $info->instituicao = $instituicao;
+            $info->save();
+        }else{
+            $info = new Infos();
+            $info->curso = $curso;
+            $info->instituicao = $instituicao;
+            $user->infos()->save($info);
         }
-        $info = new Infos();
-        $info->curso = $curso;
-        $info->instituicao = $instituicao;
-        $user->infos()->save($info);
-        
+
         Session::flash('message', "Informações salvas com sucesso");
         return Redirect::back();
 

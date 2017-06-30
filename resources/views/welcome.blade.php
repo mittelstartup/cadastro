@@ -211,7 +211,7 @@
                 </li>
                 @if(Auth::guest())
                     <li>
-                        <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Login/Cadastro</button>
+                        <a class="page-scroll" href="#" data-toggle="modal" data-target=".bs-modal-sm">Login/Cadastro</a>
                     </li>
                 @else
                     <li>
