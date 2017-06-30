@@ -8,6 +8,9 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class EstagiarioController extends Controller
 {
@@ -19,15 +22,15 @@ class EstagiarioController extends Controller
 
         $user = User::find(Auth::user()->getAuthIdentifier());
         if(count($info = Infos::where('user_id', $user->id)->get()) > 0){
-            $info->curso = $curso;
-            $info->instituicao = $instituicao;
-            $info->save();
-        }else{
-            $info = new Infos();
-            $info->curso = $curso;
-            $info->instituicao = $instituicao;
-            $user->infos()->save($info);
+            DB::table('info_estagiario')->where('user_id', '=',  $user->id)->delete();
         }
+        $info = new Infos();
+        $info->curso = $curso;
+        $info->instituicao = $instituicao;
+        $user->infos()->save($info);
+        
+        Session::flash('message', "Informações salvas com sucesso");
+        return Redirect::back();
 
     }
 
