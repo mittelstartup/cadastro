@@ -3,12 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\ComprovanteMatricula;
+use App\Models\Infos;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class EstagiarioController extends Controller
 {
+
+    public function infos(Request $request){
+
+        $curso = $request->get('curso');
+        $instituicao = $request->get('instituicao');
+
+        $user = User::find(Auth::user()->getAuthIdentifier());
+        if(count($info = Infos::where('user_id', $user->id)->get()) > 0){
+            $info->curso = $curso;
+            $info->instituicao = $instituicao;
+            $info->save();
+        }else{
+            $info = new Infos();
+            $info->curso = $curso;
+            $info->instituicao = $instituicao;
+            $user->infos()->save($info);
+        }
+
+    }
 
     //Método responsável por fazer o upload do comprovante de matrícula do aluno
     public function upload(Request $request){

@@ -29,8 +29,11 @@ Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCall
 
 
 //Upload do comprovante
-Route::post('/estariario/upload', 'EstagiarioController@upload');
+Route::post('/estagiario/upload', 'EstagiarioController@upload');
+Route::post('/estagiario/infos', 'EstagiarioController@infos');
 
 //Remoção do comprovante
 Route::get('removeranexo/{userId}/{fileId}', 'EstagiarioController@destroy');
+
+//Download do Comprovante
 Route::get('view/{userId}/{fileId}', 'EstagiarioController@view');
