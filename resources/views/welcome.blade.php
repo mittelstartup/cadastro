@@ -85,7 +85,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <a  href="/auth/facebook" class="btn btn-block btn-social btn-facebook" style="max-width: 345px">
+                                    <a  href="{{url('/auth/facebook')}}" class="btn btn-block btn-social btn-facebook" style="max-width: 345px">
                                         <span class="fa fa-facebook"></span> Logar com o Facebook
                                     </a>
                                 </div>
@@ -162,7 +162,7 @@
                             <div class="form-group">
                                 <label for="password-confirm" class="col-md-4 control-label"></label>
                                 <div class="col-md-6">
-                                    <a  href="/auth/facebook" class="btn btn-block btn-social btn-facebook" style="max-width: 345px">
+                                    <a  href="{{url('/auth/facebook')}}" class="btn btn-block btn-social btn-facebook" style="max-width: 345px">
                                         <span class="fa fa-facebook"></span> Registrar com o Facebook
                                     </a>
                                 </div>
@@ -215,7 +215,7 @@
                     </li>
                 @else
                     <li>
-                        <a class="page-scroll" href="/home">Dashboard</a>
+                        <a class="page-scroll" href="{{url('/home')}}">Dashboard</a>
                     </li>
 
                 @endif
