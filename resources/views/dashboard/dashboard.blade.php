@@ -69,8 +69,8 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner" style="background-color: black; opacity: 0.85">
-            @if (Session::has('message'))
-                <div class="alert alert-info">{{ Session::get('message') }}</div>
+            @if (Session::has('success'))
+                <div class="alert alert-success">{{ Session::get('success') }}</div>
             @endif
             <h1 id="homeHeading">Obrigado por se cadastrar</h1>
             <hr>

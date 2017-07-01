@@ -28,8 +28,8 @@ class EstagiarioController extends Controller
         $info->curso = $curso;
         $info->instituicao = $instituicao;
         $user->infos()->save($info);
-        
-        Session::flash('message', "Informações salvas com sucesso");
+
+        Session::flash('success', "Informações salvas com sucesso");
         return Redirect::back();
 
     }
