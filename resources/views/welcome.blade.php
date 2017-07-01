@@ -242,11 +242,12 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">O que é a Mitel?</h2>
+                <br>
                 <h3 class="section-subheading text-muted">Somos uma startup com o intuito de criar uma plataforma capaz de ajudar
                 empresas e estagiários.
                 De que Forma?
                 O estagiário irá se cadastrar na nossa plataforma, preencher seu perfil e pronto.
-                Com os perfis cadastrados, as empresas poderão acessar a nossa plataforma e encontrar o seu estagiário</h3>
+                Com os perfis cadastrados, as empresas poderão acessar a nossa plataforma e encontrar o seu estagiário.</h3>
             </div>
         </div>
         {{--<div class="row">--}}
@@ -367,11 +368,11 @@
                     <h4>Jáder Duarte</h4>
                     <p class="text-muted">Lead Developer</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <li><a href="https://twitter.com/Jader_boliviano" target="_blank"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li><a href="https://www.facebook.com/jader.felipe.3" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="https://www.linkedin.com/in/j%C3%A1der-felipe-silva-duarte-693263105/" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -432,28 +433,28 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" class="form-control" placeholder="Seu Nome *" id="contact_name" required data-validation-required-message="Por favor insira seu nome.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                <input type="email" class="form-control" placeholder="Seu Email *" id="contact_email" required data-validation-required-message="Por favor insira seu endereço de email.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <input type="tel" class="form-control" placeholder="Seu Telefone *" id="contact_phone" required data-validation-required-message="Por Favor insira seu número de telefone.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <textarea class="form-control" placeholder="Sua Mensagem *" id="contact_message" required data-validation-required-message="Por favor insira a mensagem."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                             <div id="success"></div>
-                            <button type="submit" class="btn btn-xl">Send Message</button>
+                            <button type="submit" class="btn btn-xl">Enviar Mensagem</button>
                         </div>
                     </div>
                 </form>
@@ -480,9 +481,9 @@
             </div>
             <div class="col-md-4">
                 <ul class="list-inline quicklinks">
-                    <li><a href="#">Privacy Policy</a>
+                    <li><a href="#">Políticas de Privacidade</a>
                     </li>
-                    <li><a href="#">Terms of Use</a>
+                    <li><a href="#">Termos de Uso</a>
                     </li>
                 </ul>
             </div>
