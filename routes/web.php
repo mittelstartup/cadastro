@@ -30,10 +30,14 @@ Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCall
 
 //Upload do comprovante
 Route::post('/estagiario/upload', 'EstagiarioController@upload');
+Route::post('/estagiario/curriculo', 'EstagiarioController@curriculo');
+
 Route::post('/estagiario/infos', 'EstagiarioController@infos');
 
 //Remoção do comprovante
 Route::get('removeranexo/{userId}/{fileId}', 'EstagiarioController@destroy');
+Route::get('removercurriculo/{userId}/{fileId}', 'EstagiarioController@destroycurriculo');
 
 //Download do Comprovante
 Route::get('view/{userId}/{fileId}', 'EstagiarioController@view');
+Route::get('viewcurriculo/{userId}/{fileId}', 'EstagiarioController@viewcurriculo');
