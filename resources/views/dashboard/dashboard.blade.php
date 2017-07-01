@@ -72,49 +72,78 @@
             @if (Session::has('success'))
                 <div class="alert alert-success">{{ Session::get('success') }}</div>
             @endif
+            @if (Session::has('error'))
+                <div class="alert alert-danger">{{ Session::get('error') }}</div>
+            @endif
             <h1 id="homeHeading">Obrigado por se cadastrar</h1>
             <hr>
             <p>Agradecemos o seu apoio e por acreditar na nossa idéia!
             <div class="row" style="width: 50%; margin-left: auto;margin-right: auto;">
-                <form action="{{url('/estagiario/infos')}}" method="post">
-                    {{csrf_field()}}
-                    <div class="form-group">
-                        <label for="instituicao">Instituição de Ensino</label>
-                        <input type="text" name="instituicao" value="@if(@$user->infos->instituicao){{@$user->infos->instituicao}}@endif" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="curso">Curso</label>
-                        <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Curso" required>
-                    </div>
+                    @if(count($user->comprovantematricula) == 0)
+                        <h3>Por gentileza anexe seu comprovante de matrícula autenticado abaixo.</h3>
+                        <span class="btn btn-success fileinput-button">
+                        <span>Selecionar Comprovante de Matrícula</span>
+                            <!-- The file input field used as target for the file upload widget -->
+				        <input id="fileupload" type="file" name="documento"
+                               data-token = "{{csrf_token()}}"
+                               data-user-id = "{{Auth::user()->id}}" accept="application/pdf">
+				        </span>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
 
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </form>
+                    @else
+
+                            @foreach($user->comprovantematricula as $file)
+                                <a href="view/{{$file->user_id}}/{{$file->id}}">{{$file->arquivo}}</a>
+                                <a href="removeranexo/{{$file->user_id}}/{{$file->id}}" style=" opacity: 1 !important;" class=" btn btn-danger">Remover Comprovante</a>
+
+                            @endforeach
+                                <br>
+                                <br>
+                        <form action="{{url('/estagiario/infos')}}" method="post">
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <label for="instituicao">Instituição de Ensino</label>
+                                <input type="text" name="instituicao" value="@if(@$user->infos->instituicao){{@$user->infos->instituicao}}@endif" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="curso">Curso</label>
+                                <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Informe o seu corso" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@endif" name="telefone" placeholder="Informe seu telefone para contato" required>
+                            </div>
+                            <div class="form-group">
+                                @if($user->curriculo)
+                                <a href="viewcurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}">{{$user->curriculo->arquivo}}</a>
+                                <a href="removercurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}" style=" opacity: 1 !important;" class=" btn btn-danger">Remover Curriculo</a>
+                                @else
+                                <span class="btn btn-success fileinput-button" id="curriculo">
+                                <span>Selecionar Currículo</span>
+                                <!-- The file input field used as target for the file upload widget -->
+                                <input id="uploadcurriculo" type="file" name="documento"
+                                       data-token = "{{csrf_token()}}"
+                                       data-user-id = "{{Auth::user()->id}}" accept="application/pdf">
+                                </span>
+                                @endif
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </form>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                    @endif
+
             </div>
             </p>
-            @if(count($user->comprovantematricula) == 0)
-                <br><h3>Por gentileza anexe seu comprovante de matrícula autenticado abaixo.</h3>
-            <span class="btn btn-success fileinput-button">
-                <span>Selecionar Comprovante de Matrícula</span>
-                <!-- The file input field used as target for the file upload widget -->
-				        <input id="fileupload" type="file" name="documento"
-                        data-token = "{{csrf_token()}}"
-                        data-user-id = "{{Auth::user()->id}}" accept="application/pdf">
-				    </span>
 
-            <br>
-            <br>
-            @else
-            <table class="table">
-                <tbody>
-                @foreach($user->comprovantematricula as $file)
-                    <tr>
-                        <td><a href="view/{{$file->user_id}}/{{$file->id}}">{{$file->arquivo}}</a></td>
-                        <td><a href="removeranexo/{{$file->user_id}}/{{$file->id}}" style=" opacity: 1 !important;" class=" btn btn-danger">Remover anexo</a> </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-            @endif
             <!-- The global progress bar -->
             <div id="progress" class="progress" style="display: none">
                 <div class="progress-bar progress-bar-success"></div>
@@ -131,13 +160,28 @@
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js') }}"></script>
     <script src="{{ asset('bower_components/jquery-file-upload/js/jquery.fileupload.js') }}"></script>
+    <script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
+    <script src="{{ asset('js/bootbox.min.js') }}"></script>
 
     <script>
+
+        $('#telefone').focusout(function(){
+            var phone, element;
+            element = $(this);
+            element.unmask();
+            phone = element.val().replace(/\D/g, '');
+            if(phone.length > 10) {
+                element.mask("(99) 99999-999?9");
+            } else {
+                element.mask("(99) 9999-9999?9");
+            }
+        }).trigger('focusout');
+        @if(count($user->comprovantematricula) == 0)
         ;(function($)
         {
             'use strict';
             $(document).ready(function(){
-                var $fileupload     = $('#fileupload');
+                var $fileupload = $('#fileupload');
                 $fileupload.fileupload({
                     url: '{{url('/estagiario/upload')}}',
                     formData: {_token: $fileupload.data('token'),  userId: $fileupload.data('userId')},
@@ -151,10 +195,43 @@
                         );
                     },
                     done: function (e, data) {
-                        location.reload();
+                        var status = JSON.parse(data['result']);
+                        if (status[0].status == "error") {
+                            bootbox.alert(status[0].message);
+                            document.getElementById('progress').style = 'none';
+                        }else{
+                            location.reload();
+                        }
                     }
                 });
             });
         })(window.jQuery);
+        @endif
+            ;(function($)
+            {
+                'use strict';
+                $(document).ready(function(){
+                    var $fileupload = $('#uploadcurriculo');
+                    $fileupload.fileupload({
+                        url: '{{url('/estagiario/curriculo')}}',
+                        formData: {_token: $fileupload.data('token'),  userId: $fileupload.data('userId')},
+
+                        progressall: function (e, data) {
+                            var progress = parseInt(data.loaded / data.total * 100, 10);
+                            $('#progress .progress-bar').css(
+                                'width',
+                                progress + '%'
+                            );
+                        },
+                        done: function (e, data) {
+                            var status = JSON.parse(data['result']);
+                            if (status[0].status == "succes") {
+                                document.getElementById('curriculo').style.display = 'none';
+                                bootbox.alert('Currículo anexado com sucesso!');
+                            }
+                        }
+                    });
+                });
+            })(window.jQuery);
     </script>
 </html>

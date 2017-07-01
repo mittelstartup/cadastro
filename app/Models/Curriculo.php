@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Infos extends Model
+class Curriculo extends Model
 {
-    //
-    protected $table = 'info_estagiario';
+    protected $table = 'curriculo';
 
     protected $fillable = [
-        'user_id', 'instituicao', 'curso', 'telefone'
+        'user_id', 'arquivo'
     ];
+    //Relationships
 
     public function user(){
         return $this->belongsTo('App\User', 'user_id');

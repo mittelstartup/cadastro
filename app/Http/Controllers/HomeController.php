@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $userId = Auth::user()->id;
 
-        $user = User::with('comprovantematricula', 'infos')->find($userId);
+        $user = User::with('comprovantematricula', 'infos', 'curriculo')->find($userId);
 
         return view('/dashboard/dashboard')->with(compact('user'));
     }
