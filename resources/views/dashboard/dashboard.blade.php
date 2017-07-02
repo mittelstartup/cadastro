@@ -128,9 +128,9 @@
                         <label for="curso">Curso</label>
                         <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Informe o seu corso" required>
                     </div>
-
+                    <h4 class="text-center">Como conseguimos entrar em contato com você?</h4>
                     <div class="form-group">
-                        <label for="telefone">Telefone</label>
+                        <label for="telefone">Celular/Telefone</label>
                         <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@endif" name="telefone" placeholder="Informe seu telefone para contato" required>
                     </div>
                     <div class="form-group">
