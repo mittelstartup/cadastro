@@ -98,7 +98,6 @@ class EstagiarioController extends Controller
 
         $user = User::find($userId);
         $user->comprovantematricula()->save($curriculo);
-        echo '[{"status":"succes"}]';
 
     }
 
