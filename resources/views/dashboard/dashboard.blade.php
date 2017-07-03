@@ -168,8 +168,9 @@
 <!-- Contact Section -->
 <section id="curriculo" style="height: 700px">
     <div class="container">
+        <h2 class="text-center">Você também pode anexar seu currículo!</h2>
+        <br>
         <div class="col-lg-12 text-center">
-            <h2>Currículo</h2>
             @if($user->curriculo)
                 <a href="viewcurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}">{{$user->curriculo->arquivo}}</a>
                 <a href="removercurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}" style=" opacity: 1 !important;" class=" btn btn-danger">Remover Currículo</a>

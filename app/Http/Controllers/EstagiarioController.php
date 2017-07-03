@@ -24,6 +24,7 @@ class EstagiarioController extends Controller
         $this->info = new Infos();
     }
 
+    // Função de cadastro e edição das informações gerais dos estagiários.
     public function infos(Request $request){
 
         $dataForm = $request->except('_token');
