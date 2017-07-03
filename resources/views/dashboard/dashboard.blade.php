@@ -78,14 +78,14 @@
 <header style="background-image: url({{ asset('img/header.jpg') }}) !important;">
     <div class="container">
         <div class="intro-text">
-            <div class="intro-heading">Obrigado Por e Cadastrar</div>
+            <div class="intro-heading">Obrigado por se Cadastrar</div>
             <a href="#about" class="page-scroll btn btn-xl">Informar os meus dados</a>
         </div>
     </div>
 </header>
 
 <!-- About Section -->
-<section id="about">
+<section id="about" style="height: 850px ">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -107,13 +107,16 @@
 
                     @endforeach
                 @endif
+                <br>
+                <br>
+                <br>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Team Section -->
-<section id="team" class="bg-light-gray">
+<section id="team" class="bg-light-gray" style="height: 900px">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 ">
@@ -126,9 +129,23 @@
                     </div>
                     <div class="form-group">
                         <label for="curso">Curso</label>
-                        <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Informe o seu corso" required>
+                        <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Informe o seu curso" required>
                     </div>
-
+                    <br>
+                    <h2 class="text-center">Qual seu Endereço e Telefone de Contato?</h2>
+                    <br>
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" value="@if(@$user->infos->cidade){{@$user->infos->cidade}}@endif" name="cidade" placeholder="Informe a Cidade onde mora" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" class="form-control" id="bairro" value="@if(@$user->infos->bairro){{@$user->infos->bairro}}@endif" name="bairro" placeholder="Informe o bairro onde mora" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rua">Rua</label>
+                        <input type="text" class="form-control" id="rua" value="@if(@$user->infos->rua){{@$user->infos->rua}}@endif" name="rua" placeholder="Informe a rua onde mora.">
+                    </div>
                     <div class="form-group">
                         <label for="telefone">Telefone</label>
                         <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@endif" name="telefone" placeholder="Informe seu telefone para contato" required>
@@ -149,7 +166,7 @@
 </section>
 
 <!-- Contact Section -->
-<section id="curriculo">
+<section id="curriculo" style="height: 700px">
     <div class="container">
         <div class="col-lg-12 text-center">
             <h2>Currículo</h2>
@@ -158,12 +175,13 @@
                 <a href="removercurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}" style=" opacity: 1 !important;" class=" btn btn-danger">Remover Currículo</a>
             @else
                 <span class="btn btn-success fileinput-button" id="curriculo">
-                            <span>Selecionar Currículo</span>
-                    <!-- The file input field used as target for the file upload widget -->
-                            <input id="uploadcurriculo" type="file" name="documento"
-                                   data-token = "{{csrf_token()}}"
-                                   data-user-id = "{{Auth::user()->id}}" accept="application/pdf">
-                            </span>
+                    <span>Selecionar Currículo</span>
+            <!-- The file input field used as target for the file upload widget -->
+                    <input id="uploadcurriculo" type="file" name="documento"
+                           data-token = "{{csrf_token()}}"
+                           data-user-id = "{{Auth::user()->id}}"
+                    accept="application/pdf">
+                </span>
             @endif
         </div>
     </div>
