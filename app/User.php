@@ -34,6 +34,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\ComprovanteMatricula');
     }
 
+    public function curriculo(){
+        return $this->hasOne('App\Models\Curriculo');
+    }
+
     public function infos(){
         return $this->hasOne('App\Models\Infos');
     }
