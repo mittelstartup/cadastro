@@ -20,6 +20,11 @@ class CreateInforEstagiarioTable extends Migration
             $table->string('instituicao');
             $table->string('curso');
             $table->string('telefone');
+            $table->string('cidade');
+            $table->string('bairro');
+            $table->string('rua')->nullable('true');
+            $table->string('numero')->nullable('true');
+
             $table->timestamps();
         });
     }

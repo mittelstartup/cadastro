@@ -16,31 +16,47 @@ use Illuminate\Support\Facades\Session;
 class EstagiarioController extends Controller
 {
 
+    private $user;
+    private $info;
+    public function __construct()
+    {
+        $this->user = new User();
+        $this->info = new Infos();
+    }
+
+    // Função de cadastro e edição das informações gerais dos estagiários.
     public function infos(Request $request){
 
-        $curso = $request->get('curso');
-        $instituicao = $request->get('instituicao');
-        $telefone = $request->get('telefone');
+        $dataForm = $request->except('_token');
 
         $user = User::find(Auth::user()->getAuthIdentifier());
         if(count($info = Infos::where('user_id', $user->id)->get()) > 0){
             $id = $info[0]->id;
             $info = Infos::find($id);
-            $info->curso = $curso;
-            $info->instituicao = $instituicao;
-            $info->telefone = $telefone;
-            $info->save();
+            $update = $info->update($dataForm);
+
+            //Verifica se a edição ocorreu de fato
+            if($update){
+                Session::flash('success', "Informações editadas com sucesso!");
+                return Redirect::back();
+            }
+            else{
+                return redirect()->back();
+            }
+
         }else{
-            $info = new Infos();
-            $info->curso = $curso;
-            $info->instituicao = $instituicao;
-            $info->telefone = $telefone;
-            $user->infos()->save($info);
+            $dataForm['user_id'] = $user->id;
+            $insert = $this->info->create($dataForm);
+
+            if(isset($insert)){
+                Session::flash('success', "Informações criadas com sucesso!");
+                return Redirect::back();
+            }
+            else{
+                return redirect()->back();
+            }
+
         }
-
-        Session::flash('success', "Informações salvas com sucesso");
-        return Redirect::back();
-
     }
 
     //Método responsável por fazer o upload do comprovante de matrícula do aluno
@@ -152,5 +168,4 @@ class EstagiarioController extends Controller
         return redirect()->back();
 
     }
-    //
 }
