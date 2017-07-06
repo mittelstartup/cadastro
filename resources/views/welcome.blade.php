@@ -336,10 +336,9 @@
                 <div class="team-member">
                     <img src="img/team/anacecilia.png" class="img-responsive img-circle" alt="">
                     <h4>Ana Cecília</h4>
-                    <p class="text-muted">Lead Marketer</p>
+                    <p class="text-muted">Negócios</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
+
                         <li><a href="https://www.facebook.com/ana.cecilia.27" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
@@ -351,10 +350,9 @@
                 <div class="team-member">
                     <img src="img/team/anliy.png" class="img-responsive img-circle" alt="">
                     <h4>Anliy Sargeant</h4>
-                    <p class="text-muted">Lead Designer</p>
+                    <p class="text-muted">Negócios</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
+
                         <li><a href="https://www.facebook.com/anliy.sargeant" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
@@ -366,10 +364,9 @@
                 <div class="team-member">
                     <img src="img/team/jader.png" class="img-responsive img-circle" alt="">
                     <h4>Jáder Duarte</h4>
-                    <p class="text-muted">Lead Developer</p>
+                    <p class="text-muted">Desenvolvedor</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="https://twitter.com/Jader_boliviano" target="_blank"><i class="fa fa-twitter"></i></a>
-                        </li>
+
                         <li><a href="https://www.facebook.com/jader.felipe.3" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="https://www.linkedin.com/in/j%C3%A1der-felipe-silva-duarte-693263105/" target="_blank"><i class="fa fa-linkedin"></i></a>
@@ -380,29 +377,27 @@
 
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="team-member">
                     <img src="img/team/jordan.png" class="img-responsive img-circle" alt="">
                     <h4>Jordan Bragon</h4>
-                    <p class="text-muted">Lead Developer</p>
+                    <p class="text-muted">Desenvolvedor</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
+
                         <li><a href="https://www.facebook.com/jordan.bragon" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="https://www.linkedin.com/in/jordanbragon/?ppe=1" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="team-member">
                     <img src="img/team/paloma.png" class="img-responsive img-circle" alt="">
                     <h4>Paloma Thaís</h4>
-                    <p class="text-muted">Lead Marketer</p>
+                    <p class="text-muted">Comunicação</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
+
                         <li><a href="https://www.facebook.com/paloma.thais15" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
@@ -410,12 +405,21 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="img/team/rafael.jpeg" class="img-responsive img-circle" alt="">
+                    <h4>Rafael Fernandes</h4>
+                    <p class="text-muted">Web Design</p>
+                    <ul class="list-inline social-buttons">
+
+                        <li><a href="https://www.facebook.com/rafael.fernandes.almeida" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        {{--<div class="row">--}}
-            {{--<div class="col-lg-8 col-lg-offset-2 text-center">--}}
-                {{--<p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>--}}
-            {{--</div>--}}
-        {{--</div>--}}
     </div>
 </section>
 
