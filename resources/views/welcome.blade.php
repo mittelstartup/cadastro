@@ -338,8 +338,8 @@
                     <h4>Ana Cecília</h4>
                     <p class="text-muted">Lead Marketer</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
+                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
+                        {{--</li>--}}
                         <li><a href="https://www.facebook.com/ana.cecilia.27" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
@@ -353,8 +353,8 @@
                     <h4>Anliy Sargeant</h4>
                     <p class="text-muted">Lead Designer</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
+                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
+                        {{--</li>--}}
                         <li><a href="https://www.facebook.com/anliy.sargeant" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
@@ -368,8 +368,8 @@
                     <h4>Jáder Duarte</h4>
                     <p class="text-muted">Lead Developer</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="https://twitter.com/Jader_boliviano" target="_blank"><i class="fa fa-twitter"></i></a>
-                        </li>
+                        {{--<li><a href="https://twitter.com/Jader_boliviano" target="_blank"><i class="fa fa-twitter"></i></a>--}}
+                        {{--</li>--}}
                         <li><a href="https://www.facebook.com/jader.felipe.3" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="https://www.linkedin.com/in/j%C3%A1der-felipe-silva-duarte-693263105/" target="_blank"><i class="fa fa-linkedin"></i></a>
@@ -386,8 +386,8 @@
                     <h4>Jordan Bragon</h4>
                     <p class="text-muted">Lead Developer</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
+                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
+                        {{--</li>--}}
                         <li><a href="https://www.facebook.com/jordan.bragon" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
@@ -401,8 +401,8 @@
                     <h4>Paloma Thaís</h4>
                     <p class="text-muted">Lead Marketer</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
+                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
+                        {{--</li>--}}
                         <li><a href="https://www.facebook.com/paloma.thais15" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
@@ -411,11 +411,6 @@
                 </div>
             </div>
         </div>
-        {{--<div class="row">--}}
-            {{--<div class="col-lg-8 col-lg-offset-2 text-center">--}}
-                {{--<p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>--}}
-            {{--</div>--}}
-        {{--</div>--}}
     </div>
 </section>
 
@@ -471,12 +466,12 @@
             </div>
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
+                    {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
+                    {{--</li>--}}
                     <li><a href="#"><i class="fa fa-facebook"></i></a>
                     </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
+                    {{--<li><a href="#"><i class="fa fa-linkedin"></i></a>--}}
+                    {{--</li>--}}
                 </ul>
             </div>
             <div class="col-md-4">
