@@ -44,8 +44,17 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a class="page-scroll" href="#page-top" style="background-color: inherit;"> <b>Olá, {{Auth::user()->name}}</b></a>
+                    <a class="page-scroll" href="#page-top" style="background-color: inherit;">
+                        <b>Olá, {{Auth::user()->name}}</b>
+                    </a>
                 </li>
+                @if(count($user->comprovantematricula) > 0   && @$user->infos->instituicao != null)
+                <li>
+                    <a class="page-scroll" href="#page-top" style="background-color: inherit;" title="Seu cadastro está completo">
+                        <i class="fa fa-check-circle-o fa-2x" aria-hidden="true" style="color: greenyellow"></i>
+                    </a>
+                </li>
+                @endif
             </ul>
         </div>
 
@@ -107,8 +116,15 @@
 <header style="background-image: url({{ asset('img/header.jpg') }}) !important;">
     <div class="container">
         <div class="intro-text">
-            <div class="intro-heading">Obrigado por se Cadastrar</div>
-            <a href="#about" class="page-scroll btn btn-xl">Informar os meus dados</a>
+
+            @if(count($user->comprovantematricula) > 0   && @$user->infos->instituicao != null)
+                <div class="intro-heading">Cadastro Completo</div>
+                <h3>Entraremos em contato em breve!</h3>
+                <a href="#about" class="page-scroll btn btn-xl">Editar Informações</a>
+            @else
+                <div class="intro-heading">Obrigado por se Cadastrar</div>
+                <a href="#about" class="page-scroll btn btn-xl">Informar os meus dados</a>
+            @endif
         </div>
     </div>
 </header>
@@ -199,10 +215,11 @@
 
 <!-- Contact Section -->
 <section id="curriculo" style="height: 700px">
-    <div class="container">
-        <h2 class="text-center">Você também pode anexar seu currículo!</h2>
+    <div class="container text-center">
+        <h2>Você também pode anexar seu currículo!</h2>
         <br>
-        <div class="col-lg-12 text-center" id="curriculo">
+        <div class="col-lg-12 " id="curriculo">
+
             @if($user->curriculo)
                 <a href="viewcurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}">{{$user->curriculo->arquivo}}</a>
                 <a href="removercurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}" style=" opacity: 1 !important;" class=" btn btn-danger">Remover Currículo</a>
@@ -216,6 +233,7 @@
                     accept="application/pdf">
                 </span>
             @endif
+
         </div>
     </div>
     </div>
