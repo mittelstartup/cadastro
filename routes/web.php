@@ -41,3 +41,7 @@ Route::get('removercurriculo/{userId}/{fileId}', 'EstagiarioController@destroycu
 //Download do Comprovante
 Route::get('view/{userId}/{fileId}', 'EstagiarioController@view');
 Route::get('viewcurriculo/{userId}/{fileId}', 'EstagiarioController@viewcurriculo');
+
+//Rotas do Contact US
+Route::get('contact-us', 'ContactUSController@contactUS');
+Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);

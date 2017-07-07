@@ -39,6 +39,7 @@
 <!-- Navigation -->
 
 <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <a class="navbar-brand page-scroll" href="https://mittelestagios.com/#page-top">Mittel</a>
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
