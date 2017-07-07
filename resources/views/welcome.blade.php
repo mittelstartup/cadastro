@@ -463,21 +463,38 @@
 <section id="contact">
     <div class="container">
         <div class="row">
+
+            {{--@if(Session::has('success'))--}}
+                {{--<div class="alert alert-success">--}}
+                    {{--{{ Session::get('success') }}--}}
+                {{--</div>--}}
+
+            {{--@endif--}}
+
+            <div class="flash-message text-center">
+                @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                    @if(Session::has('alert-' . $msg))
+                        <p class="alert alert-{{ $msg }}">{{ mb_strtoupper(Session::get('alert-' . $msg), 'UTF-8') }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                    @endif
+                @endforeach
+            </div>
+
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Fale com a gente!</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form name="sentMessage" id="contactForm" novalidate>
+                {{--<form name="sentMessage" id="contactForm" novalidate>--}}
+                {!! Form::open(['route'=>'contactus.store']) !!}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Seu Nome *" id="contact_name" required data-validation-required-message="Por favor insira seu nome.">
+                                <input type="text" class="form-control" placeholder="Seu Nome *" id="contact_name" name="contact_name" required data-validation-required-message="Por favor insira seu nome.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Seu Email *" id="contact_email" required data-validation-required-message="Por favor insira seu endereço de email.">
+                                <input type="email" class="form-control" placeholder="Seu Email *" id="contact_email" name="contact_email" required data-validation-required-message="Por favor insira seu endereço de email.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
@@ -487,7 +504,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Sua Mensagem *" id="contact_message" required data-validation-required-message="Por favor insira a mensagem."></textarea>
+                                <textarea class="form-control" placeholder="Sua Mensagem *" id="contact_message" name="contact_message" required data-validation-required-message="Por favor insira a mensagem."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -497,7 +514,8 @@
                             <button type="submit" class="btn btn-xl">Enviar Mensagem</button>
                         </div>
                     </div>
-                </form>
+                {!! Form::close() !!}
+                {{--</form>--}}
             </div>
         </div>
     </div>
