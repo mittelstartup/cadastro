@@ -56,11 +56,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', '192.168.20.129'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'cadastro_mittel'),
             'username' => env('DB_USERNAME', 'postgres'),
-            'password' => env('DB_PASSWORD', 'mittelDB'),
+            'password' => env('DB_PASSWORD', 'digital'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
