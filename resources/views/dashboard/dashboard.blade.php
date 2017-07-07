@@ -45,6 +45,8 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
+            <a href='https://mittelestagios.com/'>mittelstagios</a>
+            <a class="navbar-brand page-scroll" href="#page-top">Mittel</a>
             <a class="page-scroll" href="#page-top"> <h2>Olá {{Auth::user()->name}}</h2></a>
         </div>
 

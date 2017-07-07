@@ -12,7 +12,7 @@
     <title>Mittel</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -272,7 +272,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">O que é a Mitel?</h2>
+                <h2 class="section-heading">O que é a Mittel?</h2>
                 <br>
                 <h3 class="section-subheading text-muted">Somos uma startup com o intuito de criar uma plataforma capaz de ajudar
                 empresas e estagiários.
@@ -481,7 +481,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Seu Telefone *" id="contact_phone" required data-validation-required-message="Por Favor insira seu número de telefone.">
+                                <input type="tel" class="form-control" placeholder="Seu Telefone *" id="contact_phone" name="contact_phone" required data-validation-required-message="Por Favor insira seu número de telefone.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -501,6 +501,7 @@
             </div>
         </div>
     </div>
+
 </section>
 
 <footer>
@@ -512,11 +513,11 @@
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">
                     {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
-                    {{--</li>--}}
-                    {{--<li><a href="#"><i class="fa fa-facebook"></i></a>--}}
-                    {{--</li>--}}
-                    {{--<li><a href="#"><i class="fa fa-linkedin"></i></a>--}}
-                    {{--</li>--}}
+                        {{--</li>--}}
+                        {{--<li><a href="#"><i class="fa fa-facebook"></i></a>--}}
+                        {{--</li>--}}
+                        {{--<li><a href="#"><i class="fa fa-linkedin"></i></a>--}}
+                        {{--</li>--}}
                 </ul>
             </div>
             <div class="col-md-4">
@@ -531,15 +532,32 @@
     </div>
 </footer>
 
-
 <!-- jQuery -->
 <script src="jquery/jquery.min.js"></script>
+
 
 <!-- Bootstrap Core JavaScript -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Plugin JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+<script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
+
+<!-- Mascara para telefone -->
+<script>
+    $('#contact_phone').focusout(function(){
+        var phone, element;
+        element = $(this);
+        element.unmask();
+        phone = element.val().replace(/\D/g, '');
+        if(phone.length > 10) {
+            element.mask("(99) 99999-999?9");
+        } else {
+            element.mask("(99) 9999-9999?9");
+        }
+    }).trigger('focusout');
+</script>
 
 <!-- Contact Form JavaScript -->
 <script src="js/jqBootstrapValidation.js"></script>
