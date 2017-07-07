@@ -261,7 +261,7 @@
 <header>
     <div class="container">
         <div class="intro-text">
-            <div class="intro-heading">Bem vindo a Mittel</div>
+            <div class="intro-heading">Bem-vindo à Mittel</div>
             {{--<a href="/register" class="page-scroll btn btn-xl">AQUI</a>--}}
         </div>
     </div>
@@ -274,9 +274,9 @@
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">O que é a Mittel?</h2>
                 <br>
-                <h3 class="section-subheading text-muted">Somos uma startup com o intuito de criar uma plataforma capaz de ajudar
-                empresas e estagiários.
-                De que Forma?
+                <h3 class="section-subheading text-muted">Somos uma Startup com o intuito de criar uma plataforma capaz de ajudar
+                empresas e estudantes.
+                De que forma?
                 O estagiário irá se cadastrar na nossa plataforma, preencher seu perfil e pronto.
                 Com os perfis cadastrados, as empresas poderão acessar a nossa plataforma e encontrar o seu estagiário.</h3>
             </div>
