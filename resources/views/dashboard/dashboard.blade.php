@@ -42,30 +42,54 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-            </button>
-            <a class="page-scroll" href="#page-top"> <h2>Olá {{Auth::user()->name}}</h2></a>
+
+            <a class="page-scroll" href="#page-top"> <h2>Olá, {{Auth::user()->name}}</h2></a>
+
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
                 <li>
-
-                    <button class="page-scroll btn btn-primary" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        <h4>Sair</h4>
-                    </button>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
+                    <a class="page-scroll" href="#about">
+                        @if(count($user->comprovantematricula) == 0)
+                            <i class="fa fa-exclamation-circle" id="notcomprovante" aria-hidden="true" style="color: red"></i>
+                        @endif
+                        Comprovante de Matrícula
+                    </a>
                 </li>
+                <li>
+                    <a class="page-scroll" href="#team">
+                        @if(@$user->infos->instituicao == null or @$user->infos->instituicao == "")
+                            <i class="fa fa-exclamation-circle" id="notinfo" aria-hidden="true" style="color: red"></i>
+                        @endif
+                            Informações Pessoais
+                    </a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#curriculo">
+                        @if(!$user->curriculo)
+                            <i class="fa fa-exclamation-circle" id="notcurriculo" aria-hidden="true" style="color: red"></i>
+                        @endif
+                            Currículo
+                    </a>
+                </li>
+
+                    <li>
+                        <a class="page-scroll" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                        style="color: #48b5f0">
+                            Sair
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+
 
             </ul>
         </div>
@@ -88,7 +112,7 @@
 <section id="about" style="height: 850px ">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-12 text-center" id="comprovantematricula">
                 @if(count($user->comprovantematricula) == 0)
                     <h2>Anexe seu comprovante de matrícula autenticado abaixo.</h2>
                     <span class="btn btn-success fileinput-button">
@@ -116,10 +140,10 @@
 </section>
 
 <!-- Team Section -->
-<section id="team" class="bg-light-gray" style="height: 900px">
+<section id="team" class="bg-light-gray" style="height: 900px" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 ">
+            <div class="col-lg-12" id="formulario">
                 <h2 class="text-center">Onde você estuda?</h2>
                 <form action="{{url('/estagiario/infos')}}" method="post">
                     {{csrf_field()}}
@@ -173,7 +197,7 @@
     <div class="container">
         <h2 class="text-center">Você também pode anexar seu currículo!</h2>
         <br>
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center" id="curriculo">
             @if($user->curriculo)
                 <a href="viewcurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}">{{$user->curriculo->arquivo}}</a>
                 <a href="removercurriculo/{{$user->curriculo->user_id}}/{{$user->curriculo->id}}" style=" opacity: 1 !important;" class=" btn btn-danger">Remover Currículo</a>
@@ -218,18 +242,20 @@
 <script src="{{ asset('bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js') }}"></script>
 <script src="{{ asset('bower_components/jquery-file-upload/js/jquery.fileupload.js') }}"></script>
 <script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
-<script src="{{ asset('js/bootbox.min.js') }}"></script>
-@if (Session::has('success'))
-    <script type="text/javascript">
-        $(document).ready(function() {
-            bootbox.alert('{{ Session::get('success') }}');
-            window.location.href='#curriculo';
-        });
+<script src="{{ asset('js/notify/bootstrap-notify.min.js') }}"></script>
 
-    </script>
-
-@endif
 <script>
+
+    @if (Session::has('success'))
+        $(document).ready(function() {
+            $('html,body').animate({scrollTop:$("#curriculo").offset().top}, 500);
+            notificacao('success', '{{ Session::get('success') }}');
+        });
+    @endif
+
+//    $(document).ready(function () {
+//
+//    });
 
     $('#telefone').focusout(function(){
         var phone, element;
@@ -242,6 +268,16 @@
             element.mask("(99) 9999-9999?9");
         }
     }).trigger('focusout');
+
+    $(document).ready(function () {
+        @if(count($user->comprovantematricula) == 0)
+        $('#formulario :input').attr('disabled', true);
+        @endif
+        @if(@$user->infos->instituicao == null or @$user->infos->instituicao == "")
+            $('#curriculo :input').attr('disabled', true);
+        @endif
+    });
+
     @if(count($user->comprovantematricula) == 0)
         ;(function($)
     {
@@ -253,7 +289,6 @@
                 formData: {_token: $fileupload.data('token'),  userId: $fileupload.data('userId')},
 
                 progressall: function (e, data) {
-                    document.getElementById('progress').style = 'block';
                     var progress = parseInt(data.loaded / data.total * 100, 10);
                     $('#progress .progress-bar').css(
                         'width',
@@ -263,16 +298,20 @@
                 done: function (e, data) {
                     var status = JSON.parse(data['result']);
                     if (status[0].status == "error") {
-                        bootbox.alert(status[0].message);
-                        document.getElementById('progress').style = 'none';
+                        notificacao('danger', status[0].message);
                     }else{
-                        window.location.href='#team';
+                        document.getElementById('notcomprovante').style.display = 'none';
+                        $('#formulario :input').removeAttr('disabled');
+                        $('html,body').animate({scrollTop:$("#team").offset().top}, 500);
+                        notificacao('success', 'Comprovante de matrícula anexado com sucesso!');
+                        $('#comprovantematricula :input').attr('disabled', true);
                     }
                 }
             });
         });
     })(window.jQuery);
     @endif
+    @if(!$user->curriculo)
         ;(function($)
     {
         'use strict';
@@ -295,6 +334,42 @@
             });
         });
     })(window.jQuery);
+    @endif
+    function notificacao(type, message) {
+        $.notify({
+            // options
+            message: message,
+        },{
+            // settings
+            element: 'body',
+            position: null,
+            type: type,
+            allow_dismiss: true,
+            newest_on_top: false,
+            showProgressbar: false,
+            placement: {
+                from: "top",
+                align: "center"
+            },
+            offset: 100,
+            spacing: 10,
+            z_index: 1031,
+            delay: 5000,
+            timer: 1000,
+            url_target: '_blank',
+            mouse_over: null,
+            animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+            },
+            onShow: null,
+            onShown: null,
+            onClose: null,
+            onClosed: null,
+            icon_type: 'class'
+        });
+
+    }
 </script>
 
 </html>

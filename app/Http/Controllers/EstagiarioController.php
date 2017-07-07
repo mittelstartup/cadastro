@@ -115,6 +115,8 @@ class EstagiarioController extends Controller
         $user = User::find($userId);
         $user->comprovantematricula()->save($curriculo);
 
+        Session::flash('success', "Currículo anexado com sucesso!");
+
     }
 
     //Funçaõ responsável por visualizar o atestado de matricula anexado
