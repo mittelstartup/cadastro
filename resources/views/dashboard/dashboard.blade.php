@@ -67,7 +67,10 @@
                     <a class="page-scroll" href="{{url('/')}}">Home</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#about">
+                    <a class="page-scroll" href="#about"
+                    @if(count($user->comprovantematricula) == 0)
+                           title="Comprovante de matrícula não anexados"
+                    @endif>
                         @if(count($user->comprovantematricula) == 0)
                             <i class="fa fa-exclamation-circle" id="notcomprovante" aria-hidden="true" style="color: red"></i>
                         @endif
@@ -75,7 +78,10 @@
                     </a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#team">
+                    <a class="page-scroll" href="#team"
+                       @if(@$user->infos->instituicao == null or @$user->infos->instituicao == "")
+                       title="Informações não cadastradas"
+                            @endif>
                         @if(@$user->infos->instituicao == null or @$user->infos->instituicao == "")
                             <i class="fa fa-exclamation-circle" id="notinfo" aria-hidden="true" style="color: red"></i>
                         @endif
@@ -83,7 +89,10 @@
                     </a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#curriculo">
+                    <a class="page-scroll" href="#curriculo"
+                       @if(!$user->curriculo)
+                       title="Currículo não anexado"
+                            @endif>
                         @if(!$user->curriculo)
                             <i class="fa fa-exclamation-circle" id="notcurriculo" aria-hidden="true" style="color: red"></i>
                         @endif
