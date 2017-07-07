@@ -183,6 +183,37 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade bs-modal" id="politicaprivacidade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" style="width: 40%">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Política de privacidade para <a href='https://mittelestagios.com/'>mittelstagios</a></h2>
+                <p>Todas as suas informações pessoais recolhidas, serão usadas para o ajudar a tornar a sua visita no nosso site o
+                    mais produtiva e agradável possível.</p>
+                <p>A garantia da confidencialidade dos dados pessoais dos utilizadores do nosso site é importante para o mittelstagios.</p>
+                <p>Todas as informações pessoais relativas a membros, assinantes, clientes ou visitantes que usem o mittelstagios serão
+                    tratadas em concordância com a Lei da Proteção de Dados Pessoais de 26 de outubro de 1998 (Lei n.º 67/98).</p>
+                <p>A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada, data de
+                    nascimento e/ou outros.</p>
+                <p>O uso do mittelstagios pressupõe a aceitação deste Acordo de privacidade. A equipa do mittelstagios reserva-se ao
+                    direito de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade
+                    com regularidade de forma a estar sempre atualizado.</p>
+                <h2>Os anúncios</h2>
+                <p>Tal como outros websites, coletamos e utilizamos informação contida nos anúncios. A informação contida nos anúncios,
+                    inclui o seu endereço IP (Internet Protocol), o seu ISP (Internet Service Provider, como o Sapo, Clix, ou outro),
+                    o browser que utilizou ao visitar o nosso website (como o Internet Explorer ou o Firefox), o tempo da sua visita e que
+                    páginas visitou dentro do nosso website.</p>
+                <h2>Ligações a Sites de terceiros</h2>
+                <p>O mittelstagios possui ligações para outros sites, os quais, a nosso ver, podem conter informações / ferramentas
+                    úteis para os nossos visitantes. A nossa política de privacidade não é aplicada a sites de terceiros, pelo que,
+                    caso visite outro site a partir do nosso deverá ler a politica de privacidade do mesmo.</p>
+                <p>Não nos responsabilizamos pela política de privacidade ou conteúdo presente nesses mesmos sites.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Navigation -->
 <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
@@ -336,7 +367,7 @@
                 <div class="team-member">
                     <img src="img/team/anacecilia.png" class="img-responsive img-circle" alt="">
                     <h4>Ana Cecília</h4>
-                    <p class="text-muted">Lead Marketer</p>
+                    <p class="text-muted">Negócios</p>
                     <ul class="list-inline social-buttons">
                         {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
                         {{--</li>--}}
@@ -351,7 +382,7 @@
                 <div class="team-member">
                     <img src="img/team/anliy.png" class="img-responsive img-circle" alt="">
                     <h4>Anliy Sargeant</h4>
-                    <p class="text-muted">Lead Designer</p>
+                    <p class="text-muted">Negócios</p>
                     <ul class="list-inline social-buttons">
                         {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
                         {{--</li>--}}
@@ -366,7 +397,7 @@
                 <div class="team-member">
                     <img src="img/team/jader.png" class="img-responsive img-circle" alt="">
                     <h4>Jáder Duarte</h4>
-                    <p class="text-muted">Lead Developer</p>
+                    <p class="text-muted">Desenvolvedor</p>
                     <ul class="list-inline social-buttons">
                         {{--<li><a href="https://twitter.com/Jader_boliviano" target="_blank"><i class="fa fa-twitter"></i></a>--}}
                         {{--</li>--}}
@@ -380,30 +411,44 @@
 
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="team-member">
                     <img src="img/team/jordan.png" class="img-responsive img-circle" alt="">
                     <h4>Jordan Bragon</h4>
-                    <p class="text-muted">Lead Developer</p>
+                    <p class="text-muted">Desenvolvedor</p>
                     <ul class="list-inline social-buttons">
                         {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
                         {{--</li>--}}
                         <li><a href="https://www.facebook.com/jordan.bragon" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/in/jordanbragon/?ppe=1" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="img/team/paloma.png" class="img-responsive img-circle" alt="">
+                    <h4>Paloma Thaís</h4>
+                    <p class="text-muted">Comunicação</p>
+                    <ul class="list-inline social-buttons">
+                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
+                        {{--</li>--}}
+                        <li><a href="https://www.facebook.com/paloma.thais15" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="team-member">
-                    <img src="img/team/paloma.png" class="img-responsive img-circle" alt="">
-                    <h4>Paloma Thaís</h4>
-                    <p class="text-muted">Lead Marketer</p>
+                    <img src="img/team/rafael.jpeg" class="img-responsive img-circle" alt="">
+                    <h4>Rafael Fernandes</h4>
+                    <p class="text-muted">Web Design</p>
                     <ul class="list-inline social-buttons">
-                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
-                        {{--</li>--}}
-                        <li><a href="https://www.facebook.com/paloma.thais15" target="_blank"><i class="fa fa-facebook"></i></a>
+
+                        <li><a href="https://www.facebook.com/rafael.fernandes.almeida" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
@@ -468,17 +513,17 @@
                 <ul class="list-inline social-buttons">
                     {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
                     {{--</li>--}}
-                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
+                    {{--<li><a href="#"><i class="fa fa-facebook"></i></a>--}}
+                    {{--</li>--}}
                     {{--<li><a href="#"><i class="fa fa-linkedin"></i></a>--}}
                     {{--</li>--}}
                 </ul>
             </div>
             <div class="col-md-4">
                 <ul class="list-inline quicklinks">
-                    <li><a href="#">Políticas de Privacidade</a>
+                    <li><a href="#" data-toggle="modal" data-target=".bs-modal">Políticas de Privacidade</a>
                     </li>
-                    <li><a href="#">Termos de Uso</a>
+                    {{--<li><a href="#">Termos de Uso</a>--}}
                     </li>
                 </ul>
             </div>

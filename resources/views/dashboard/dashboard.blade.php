@@ -146,8 +146,11 @@
                         <label for="rua">Rua</label>
                         <input type="text" class="form-control" id="rua" value="@if(@$user->infos->rua){{@$user->infos->rua}}@endif" name="rua" placeholder="Informe a rua onde mora.">
                     </div>
+
+                    <h4 class="text-center">Como conseguimos entrar em contato com você?</h4>
+
                     <div class="form-group">
-                        <label for="telefone">Telefone</label>
+                        <label for="telefone">Celular/Telefone</label>
                         <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@endif" name="telefone" placeholder="Informe seu telefone para contato" required>
                     </div>
                     <div class="form-group">

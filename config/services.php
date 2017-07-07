@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '114003409206022',
         'client_secret' => '1dc6ff3a6f0a6633bc7ee4cb80d4ac18',
-        'redirect' => 'http://localhost/cadastro_mittel/public/auth/facebook/callback',
+        'redirect' => 'https://mittelestagios.com/auth/facebook/callback',
     ],
 
 ];
