@@ -170,7 +170,7 @@
 </section>
 
 <!-- Team Section -->
-<section id="team" class="bg-light-gray" style="height: 900px" >
+<section id="team" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12" id="formulario">
