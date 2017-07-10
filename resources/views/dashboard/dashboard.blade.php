@@ -174,20 +174,26 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12" id="formulario">
+                @if(count($user->comprovantematricula) == 0)
+                    <div class="alert alert-warning" id="alert-warning">
+                        <strong>Atenção!</strong> É necessário anexar o comprovante de matrícula primeiro, para inserir as
+                        suas informações pessoais.
+                    </div>
+                @endif
                 <h3 class="text-center">Onde você estuda?</h3>
                 <form action="{{url('/estagiario/infos')}}" method="post" id="formInfo">
 
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label for="instituicao">Instituição de Ensino</label>
+                        <label for="instituicao">Instituição de Ensino*</label>
                         <input type="text" name="instituicao" value="@if(@$user->infos->instituicao){{@$user->infos->instituicao}}@endif" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
                     </div>
                     <div class="form-group">
-                        <label for="curso">Curso</label>
+                        <label for="curso">Curso*</label>
                         <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Informe o seu curso" required>
                     </div>
                     <div class="form-group">
-                        <label for="cpf" class="control-label">CPF</label>
+                        <label for="cpf" class="control-label">CPF*</label>
                         <input type="text" name="cpf" data-equals=true value="@if(@$user->infos->cpf){{@$user->infos->cpf}}@endif" class="form-control" id="cpf" placeholder="Inform o seu CPF"
                                data-error="Por favor, informe um CPF válido." required>
                         <div class="help-block with-errors"></div>
@@ -196,11 +202,11 @@
                     <h3 class="text-center">Qual seu Endereço ?</h3>
                     <br>
                     <div class="form-group">
-                        <label for="cidade">Cidade</label>
+                        <label for="cidade">Cidade*</label>
                         <input type="text" class="form-control" id="cidade" value="@if(@$user->infos->cidade){{@$user->infos->cidade}}@endif" name="cidade" placeholder="Informe a Cidade onde mora" required>
                     </div>
                     <div class="form-group">
-                        <label for="bairro">Bairro</label>
+                        <label for="bairro">Bairro*</label>
                         <input type="text" class="form-control" id="bairro" value="@if(@$user->infos->bairro){{@$user->infos->bairro}}@endif" name="bairro" placeholder="Informe o bairro onde mora" required>
                     </div>
                     <div class="form-group">
@@ -211,7 +217,7 @@
                     <h4 class="text-center">Qual seu telefone para contato ?</h4>
 
                     <div class="form-group">
-                        <label for="telefone">Celular/Telefone</label>
+                        <label for="telefone">Celular/Telefone*</label>
                         <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@endif" name="telefone" placeholder="Informe somente números" required>
                     </div>
                     <div class="form-group">
@@ -221,11 +227,6 @@
                 </form>
             </div>
         </div>
-        {{--<div class="row">--}}
-        {{--<div class="col-lg-8 col-lg-offset-2 text-center">--}}
-        {{--<p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>--}}
-        {{--</div>--}}
-        {{--</div>--}}
     </div>
 </section>
 
@@ -343,15 +344,6 @@
         }
     }).trigger('focusout');
 
-//    $("#cpf").bind('keyup', function(event){
-//        if ($(this).val().length==11){
-//            if(TestaCPF($(this).val()) == true){
-//                document.getElementById('cpftrue').style.display = 'block';
-//            }else{
-//                document.getElementById('cpffalse').style.display = 'block';
-//            }
-//        }
-//    });
 
     $(document).ready(function () {
         @if(count($user->comprovantematricula) == 0)
@@ -385,6 +377,7 @@
                         notificacao('danger', status[0].message);
                     }else{
                         document.getElementById('notcomprovante').style.display = 'none';
+                        document.getElementById('alert-warning').style.display = 'none';
                         $('#formulario :input').removeAttr('disabled');
                         $('html,body').animate({scrollTop:$("#team").offset().top}, 500);
                         notificacao('success', 'Comprovante de matrícula anexado com sucesso!');
