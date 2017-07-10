@@ -174,8 +174,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12" id="formulario">
-                <h2 class="text-center">Onde você estuda?</h2>
-                <form action="{{url('/estagiario/infos')}}" method="post">
+                <h3 class="text-center">Onde você estuda?</h3>
+                <form action="{{url('/estagiario/infos')}}" method="post" id="formInfo">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="instituicao">Instituição de Ensino</label>
@@ -185,8 +185,14 @@
                         <label for="curso">Curso</label>
                         <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Informe o seu curso" required>
                     </div>
+                    <div class="form-group">
+                        <label for="cpf" class="control-label">CPF</label>
+                        <input type="text" name="cpf" data-equals=true value="@if(@$user->infos->cpf){{@$user->infos->cpf}}@endif" class="form-control" id="cpf" placeholder="Inform o seu CPF"
+                               data-error="Por favor, informe um CPF válido." required>
+                        <div class="help-block with-errors"></div>
+                    </div>
                     <br>
-                    <h2 class="text-center">Qual seu Endereço e Telefone de Contato?</h2>
+                    <h3 class="text-center">Qual seu Endereço e Telefone de Contato?</h3>
                     <br>
                     <div class="form-group">
                         <label for="cidade">Cidade</label>
@@ -275,6 +281,7 @@
 <script src="{{ asset('bower_components/jquery-file-upload/js/jquery.fileupload.js') }}"></script>
 <script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
 <script src="{{ asset('js/notify/bootstrap-notify.min.js') }}"></script>
+<script src="{{ asset('bootstrap/js/validator.min.js') }}"></script>
 
 <script>
 
@@ -288,6 +295,40 @@
 //    $(document).ready(function () {
 //
 //    });
+    $('#formInfo').validator({
+        custom: {
+            equals: function(strCPF) {
+                var result = TestaCPF(strCPF.val());
+                var matchValue = strCPF.data("equals") // true
+                if (result !== matchValue) {
+                    return "Hey, that's not valid! It's gotta be " + matchValue
+                }
+            }
+        }
+    });
+
+    function TestaCPF(strCPF) {
+        strCPF.toString();
+        var Soma;
+        var Resto;
+        Soma = 0;
+        if (strCPF == "00000000000") return false;
+
+        for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.toString().substring(i-1, i)) * (11 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11))  Resto = 0;
+        if (Resto != parseInt(strCPF.toString().substring(9, 10)) ) return false;
+
+        Soma = 0;
+        for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.toString().substring(i-1, i)) * (12 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11))  Resto = 0;
+        if (Resto != parseInt(strCPF.toString().substring(10, 11) ) ) return false;
+        return true;
+    }
+
 
     $('#telefone').focusout(function(){
         var phone, element;
@@ -300,6 +341,16 @@
             element.mask("(99) 9999-9999?9");
         }
     }).trigger('focusout');
+
+//    $("#cpf").bind('keyup', function(event){
+//        if ($(this).val().length==11){
+//            if(TestaCPF($(this).val()) == true){
+//                document.getElementById('cpftrue').style.display = 'block';
+//            }else{
+//                document.getElementById('cpffalse').style.display = 'block';
+//            }
+//        }
+//    });
 
     $(document).ready(function () {
         @if(count($user->comprovantematricula) == 0)

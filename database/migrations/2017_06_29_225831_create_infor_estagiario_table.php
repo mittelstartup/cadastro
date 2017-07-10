@@ -24,7 +24,7 @@ class CreateInforEstagiarioTable extends Migration
             $table->string('bairro');
             $table->string('rua')->nullable('true');
             $table->string('numero')->nullable('true');
-
+            $table->string('cpf')->unique();
             $table->timestamps();
         });
     }
