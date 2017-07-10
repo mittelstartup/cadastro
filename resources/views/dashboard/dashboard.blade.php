@@ -174,7 +174,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12" id="formulario">
-                <h2 class="text-center">Onde você estuda?</h2>
+                <h2 class="text-center">Onde você estuda ?</h2>
                 <form action="{{url('/estagiario/infos')}}" method="post">
                     {{csrf_field()}}
                     <div class="form-group">
@@ -186,7 +186,7 @@
                         <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Informe o seu curso" required>
                     </div>
                     <br>
-                    <h2 class="text-center">Qual seu Endereço e Telefone de Contato?</h2>
+                    <h2 class="text-center">Qual seu Endereço ?</h2>
                     <br>
                     <div class="form-group">
                         <label for="cidade">Cidade</label>
@@ -201,11 +201,11 @@
                         <input type="text" class="form-control" id="rua" value="@if(@$user->infos->rua){{@$user->infos->rua}}@endif" name="rua" placeholder="Informe a rua onde mora.">
                     </div>
 
-                    <h4 class="text-center">Como conseguimos entrar em contato com você?</h4>
+                    <h4 class="text-center">Qual seu telefone para contato ?</h4>
 
                     <div class="form-group">
                         <label for="telefone">Celular/Telefone</label>
-                        <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@endif" name="telefone" placeholder="Informe seu telefone para contato" required>
+                        <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@endif" name="telefone" placeholder="Informe somente números" required>
                     </div>
                     <div class="form-group">
 

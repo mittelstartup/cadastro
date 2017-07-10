@@ -27,7 +27,7 @@ class ContactUSController extends Controller
         ]);
 
         ContactUS::create($request->all());
-        Session::flash('alert-success', "Obrigado por entrar em contato, em breve você receberá uma resposta através do email informado.");
+        Session::flash('alert-success', "Obrigado por entrar em contato, em breve entraremos em contato através do email informado.");
         return redirect('/#contact');
 
     }
