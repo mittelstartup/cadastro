@@ -47,7 +47,7 @@ class EstagiarioController extends Controller
             $insert = $this->info->create($dataForm);
 
             if(isset($insert)){
-                Session::flash('success', "Informações criadas com sucesso!");
+                Session::flash('success', "Informações criadas com sucesso! Seu cadastro esta completo.");
                 return Redirect::back();
             }
             else{
