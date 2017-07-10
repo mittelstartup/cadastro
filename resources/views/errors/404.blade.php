@@ -52,10 +52,10 @@
 </head>
 
 <body>
-<video  poster="https://www.theuselesswebindex.com//static/videos/error.jpg" autobuffer="" autoplay="" loop=""  class="bg_video">
-    <source src="https://www.theuselesswebindex.com//static/videos/error.mp4" type="video/mp4">
-    <source src="https://www.theuselesswebindex.com//static/videos/error.ogv" type="video/ogg">
-    <source src="https://www.theuselesswebindex.com//static/videos/error.webm" type="video/webm">
+<video  poster="{{ asset('videoerror/error.jpg') }}" autobuffer="" autoplay="" loop=""  class="bg_video">
+    <source src="{{ asset('videoerror/error.mp4') }}" type="video/mp4">
+    <source src="{{ asset('videoerror/error.ogv') }}" type="video/ogg">
+    <source src="{{ asset('videoerror/error.webm') }}" type="video/webm">
 </video>
 <div class="body">
     <h1>Página Não Encontrada <br>
