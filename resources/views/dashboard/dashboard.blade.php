@@ -41,36 +41,33 @@
 <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <ul class="nav navbar-nav navbar-left">
-                <li>
+        <div class="navbar-header page-scroll" style='font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: #fff;
+        text-transform: uppercase;
+        '>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
                     <a class="page-scroll" href="#page-top" style="background-color: inherit;">
                         <b>Olá, {{Auth::user()->name}}</b>
                     </a>
-                </li>
                 @if(count($user->comprovantematricula) > 0   && @$user->infos->instituicao != null)
-                <li>
-                    <a class="page-scroll" href="#page-top" style="background-color: inherit;" title="Seu cadastro está completo">
-                        <i class="fa fa-check-circle-o fa-2x" aria-hidden="true" style="color: greenyellow"></i>
-                    </a>
-                </li>
+
+                        <a class="page-scroll" href="#page-top" style="background-color: inherit;" title="Seu cadastro está completo">
+                            <i class="fa fa-check-circle-o fa-2x" aria-hidden="true" style="color: greenyellow"></i>
+                        </a>
                 @endif
-            </ul>
         </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="{{url('/')}}">Home</a>
-                </li>
+
                 <li>
                     <a class="page-scroll" href="#about"
-                    @if(count($user->comprovantematricula) == 0)
-                           title="Comprovante de matrícula não anexados"
-                    @endif>
+                       @if(count($user->comprovantematricula) == 0)
+                       title="Comprovante de matrícula não anexados"
+                            @endif>
                         @if(count($user->comprovantematricula) == 0)
                             <i class="fa fa-exclamation-circle" id="notcomprovante" aria-hidden="true" style="color: red"></i>
                         @endif
@@ -85,7 +82,7 @@
                         @if(@$user->infos->instituicao == null or @$user->infos->instituicao == "")
                             <i class="fa fa-exclamation-circle" id="notinfo" aria-hidden="true" style="color: red"></i>
                         @endif
-                            Informações Pessoais
+                        Informações Pessoais
                     </a>
                 </li>
                 <li>
@@ -96,28 +93,50 @@
                         @if(!$user->curriculo)
                             <i class="fa fa-exclamation-circle" id="notcurriculo" aria-hidden="true" style="color: red"></i>
                         @endif
-                            Currículo
+                        Currículo
                     </a>
                 </li>
 
-                    <li>
-                        <a class="page-scroll" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
+                <li>
+                    <a class="page-scroll" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
-                        style="color: #48b5f0">
-                            Sair
-                        </a>
+                       style="color: #48b5f0">
+                        Sair
+                    </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
-
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
 
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
+    {{--<div class="container">--}}
+        {{--<!-- Brand and toggle get grouped for better mobile display -->--}}
+
+        {{--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">--}}
+
+            {{--<ul class="nav navbar-nav navbar-right">--}}
+                {{--<li class="hidden">--}}
+                    {{--<a href="#page-top"></a>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                    {{--<a class="page-scroll" href="{{url('/')}}">Home</a>--}}
+                {{--</li>--}}
+
+
+
+
+
+
+
+            {{--</ul>--}}
+        {{--</div>--}}
+        {{--<!-- /.navbar-collapse -->--}}
+    {{--</div>--}}
     <!-- /.container-fluid -->
 </nav>
 
