@@ -186,15 +186,15 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="instituicao">Instituição de Ensino*</label>
-                        <input type="text" name="instituicao" value="@if(@$user->infos->instituicao){{@$user->infos->instituicao}}@endif" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
+                        <input type="text" name="instituicao" value="@if(@$user->infos->instituicao){{@$user->infos->instituicao}}@else{{old('instituicao')}}@endif" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
                     </div>
                     <div class="form-group">
                         <label for="curso">Curso*</label>
-                        <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@endif" name="curso" placeholder="Informe o seu curso" required>
+                        <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@else{{old('curso')}}@endif" name="curso" placeholder="Informe o seu curso" required>
                     </div>
                     <div class="form-group">
                         <label for="cpf" class="control-label">CPF*</label>
-                        <input type="text" name="cpf" data-equals=true value="@if(@$user->infos->cpf){{@$user->infos->cpf}}@endif" class="form-control" id="cpf" placeholder="Inform o seu CPF"
+                        <input type="text" name="cpf" data-equals=true value="@if(@$user->infos->cpf){{@$user->infos->cpf}}@else{{old('cpf')}}@endif" class="form-control" id="cpf" placeholder="Inform o seu CPF"
                                data-error="Por favor, informe um CPF válido." required>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -203,22 +203,22 @@
                     <br>
                     <div class="form-group">
                         <label for="cidade">Cidade*</label>
-                        <input type="text" class="form-control" id="cidade" value="@if(@$user->infos->cidade){{@$user->infos->cidade}}@endif" name="cidade" placeholder="Informe a Cidade onde mora" required>
+                        <input type="text" class="form-control" id="cidade" value="@if(@$user->infos->cidade){{@$user->infos->cidade}}@else{{old('cidade')}}@endif" name="cidade" placeholder="Informe a Cidade onde mora" required>
                     </div>
                     <div class="form-group">
                         <label for="bairro">Bairro*</label>
-                        <input type="text" class="form-control" id="bairro" value="@if(@$user->infos->bairro){{@$user->infos->bairro}}@endif" name="bairro" placeholder="Informe o bairro onde mora" required>
+                        <input type="text" class="form-control" id="bairro" value="@if(@$user->infos->bairro){{@$user->infos->bairro}}@else{{old('bairro')}}@endif" name="bairro" placeholder="Informe o bairro onde mora" required>
                     </div>
                     <div class="form-group">
                         <label for="rua">Rua</label>
-                        <input type="text" class="form-control" id="rua" value="@if(@$user->infos->rua){{@$user->infos->rua}}@endif" name="rua" placeholder="Informe a rua onde mora.">
+                        <input type="text" class="form-control" id="rua" value="@if(@$user->infos->rua){{@$user->infos->rua}}@else{{old('rua')}}@endif" name="rua" placeholder="Informe a rua onde mora.">
                     </div>
 
                     <h4 class="text-center">Qual seu telefone para contato ?</h4>
 
                     <div class="form-group">
                         <label for="telefone">Celular/Telefone*</label>
-                        <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@endif" name="telefone" placeholder="Informe somente números" required>
+                        <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@else{{old('telefone')}}@endif" name="telefone" placeholder="Informe somente números" required>
                     </div>
                     <div class="form-group">
 
@@ -292,6 +292,13 @@
             $('html,body').animate({scrollTop:$("#curriculo").offset().top}, 500);
             notificacao('success', '{{ Session::get('success') }}');
         });
+    @endif
+
+    @if (Session::has('dangercpf'))
+        $(document).ready(function() {
+        notificacao('danger', '{{ Session::get('dangercpf') }}');
+        $('html,body').animate({scrollTop:$("#team").offset().top}, 500);
+    });
     @endif
 
 //    $(document).ready(function () {

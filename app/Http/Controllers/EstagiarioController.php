@@ -44,14 +44,21 @@ class EstagiarioController extends Controller
 
         }else{
             $dataForm['user_id'] = $user->id;
-            $insert = $this->info->create($dataForm);
+            $verify = Infos::all()->where('cpf', $dataForm['cpf'])->take(1);
+            if(count($verify) == 0){
+                $insert = $this->info->create($dataForm);
 
-            if(isset($insert)){
-                Session::flash('success', "Informações criadas com sucesso! Seu cadastro esta completo.");
-                return Redirect::back();
-            }
-            else{
-                return redirect()->back();
+                if(isset($insert)){
+                    Session::flash('success', "Informações criadas com sucesso! Seu cadastro esta completo.");
+                    return Redirect::back();
+                }
+                else{
+                    return redirect()->back();
+                }
+
+            }else{
+                Session::flash('dangercpf', "CPF ja cadastrado!");
+                return redirect()->back()->withInput($request->input());
             }
 
         }
