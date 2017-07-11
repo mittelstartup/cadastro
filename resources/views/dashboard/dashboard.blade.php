@@ -116,27 +116,6 @@
         </div>
         <!-- /.navbar-collapse -->
     </div>
-    {{--<div class="container">--}}
-        {{--<!-- Brand and toggle get grouped for better mobile display -->--}}
-
-        {{--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">--}}
-
-            {{--<ul class="nav navbar-nav navbar-right">--}}
-                {{--<li class="hidden">--}}
-                    {{--<a href="#page-top"></a>--}}
-                {{--</li>--}}
-
-
-
-
-
-
-
-
-            {{--</ul>--}}
-        {{--</div>--}}
-        {{--<!-- /.navbar-collapse -->--}}
-    {{--</div>--}}
     <!-- /.container-fluid -->
 </nav>
 
@@ -205,11 +184,15 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="instituicao">Instituição de Ensino*</label>
-                        <input type="text" name="instituicao" value="@if(@$user->infos->instituicao){{@$user->infos->instituicao}}@else{{old('instituicao')}}@endif" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino" required>
+                        <input type="text" name="instituicao" value="@if(@$user->infos->instituicao){{@$user->infos->instituicao}}@else{{old('instituicao')}}@endif" class="form-control" id="instituicao" placeholder="Informa a sua instituição de ensino"
+                               data-error="Por favor, informe sua instituiçaõ de ensino." required>
+                        <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
                         <label for="curso">Curso*</label>
-                        <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@else{{old('curso')}}@endif" name="curso" placeholder="Informe o seu curso" required>
+                        <input type="text" class="form-control" id="curso" value="@if(@$user->infos->curso){{@$user->infos->curso}}@else{{old('curso')}}@endif" name="curso" placeholder="Informe o seu curso"
+                               data-error="Por favor, informe seu curso." required>
+                        <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
                         <label for="cpf" class="control-label">CPF*</label>
@@ -222,11 +205,15 @@
                     <br>
                     <div class="form-group">
                         <label for="cidade">Cidade*</label>
-                        <input type="text" class="form-control" id="cidade" value="@if(@$user->infos->cidade){{@$user->infos->cidade}}@else{{old('cidade')}}@endif" name="cidade" placeholder="Informe a Cidade onde mora" required>
+                        <input type="text" class="form-control" id="cidade" value="@if(@$user->infos->cidade){{@$user->infos->cidade}}@else{{old('cidade')}}@endif" name="cidade" placeholder="Informe a Cidade onde mora"
+                               data-error="Por favor, informe a sua cidade." required>
+                        <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
                         <label for="bairro">Bairro*</label>
-                        <input type="text" class="form-control" id="bairro" value="@if(@$user->infos->bairro){{@$user->infos->bairro}}@else{{old('bairro')}}@endif" name="bairro" placeholder="Informe o bairro onde mora" required>
+                        <input type="text" class="form-control" id="bairro" value="@if(@$user->infos->bairro){{@$user->infos->bairro}}@else{{old('bairro')}}@endif" name="bairro" placeholder="Informe o bairro onde mora"
+                               data-error="Por favor, informe o Bairro onde você mora." required>
+                        <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
                         <label for="rua">Rua</label>
@@ -237,10 +224,15 @@
 
                     <div class="form-group">
                         <label for="telefone">Celular/Telefone*</label>
-                        <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@else{{old('telefone')}}@endif" name="telefone" placeholder="Informe somente números" required>
+                        <input type="text" class="form-control" id="telefone" value="@if(@$user->infos->telefone){{@$user->infos->telefone}}@else{{old('telefone')}}@endif" name="telefone" placeholder="Informe somente números"
+                               data-error="Por favor, informe um número para contato." required>
+                        <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-
+                        <label for="disponibilidade">Disponibilidade</label>
+                        <input type="text" class="form-control" id="disponibilidade" value="@if(@$user->infos->rua){{@$user->infos->disponibilidade}}@else{{old('disponibilidade')}}@endif" name="disponibilidade" placeholder="Informe a sua disponibilidade para estagiar."
+                               data-error="Por favor, informe a sua disponibilidade para estagiar." required>
+                        <div class="help-block with-errors"></div>
                     </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>

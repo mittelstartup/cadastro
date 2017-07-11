@@ -10,7 +10,7 @@ class Infos extends Model
     protected $table = 'info_estagiario';
 
     protected $fillable = [
-        'user_id', 'instituicao', 'curso', 'cidade', 'bairro', 'rua', 'telefone', 'cpf'
+        'user_id', 'instituicao', 'curso', 'cidade', 'bairro', 'rua', 'telefone', 'cpf', 'disponibilidade'
     ];
 
     public function user(){
