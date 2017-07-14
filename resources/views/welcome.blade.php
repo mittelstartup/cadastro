@@ -545,7 +545,7 @@
                         {{--</li>--}}
                         <li><a href="https://www.facebook.com/ana.cecilia.27" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="https://www.linkedin.com/in/ana-cec%C3%ADlia-gomes-de-paula-b646a3146/" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -704,7 +704,7 @@
                 <ul class="list-inline social-buttons">
                     {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
                         {{--</li>--}}
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         {{--<li><a href="#"><i class="fa fa-linkedin"></i></a>--}}
                         {{--</li>--}}
