@@ -552,21 +552,6 @@
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
-                    <img src="img/team/anliy.png" class="img-responsive img-circle" alt="">
-                    <h4>Anliy Sargeant</h4>
-                    <p class="text-muted">Negócios</p>
-                    <ul class="list-inline social-buttons">
-                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
-                        {{--</li>--}}
-                        <li><a href="https://www.facebook.com/anliy.sargeant" target="_blank"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
                     <img src="img/team/jader.png" class="img-responsive img-circle" alt="">
                     <h4>Jáder Duarte</h4>
                     <p class="text-muted">Desenvolvedor</p>
@@ -580,9 +565,6 @@
                     </ul>
                 </div>
             </div>
-
-        </div>
-        <div class="row">
             <div class="col-sm-4">
                 <div class="team-member">
                     <img src="img/team/jordan.png" class="img-responsive img-circle" alt="">
@@ -594,35 +576,6 @@
                         <li><a href="https://www.facebook.com/jordan.bragon" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="https://www.linkedin.com/in/jordanbragon/?ppe=1" target="_blank"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="img/team/paloma.png" class="img-responsive img-circle" alt="">
-                    <h4>Paloma Thaís</h4>
-                    <p class="text-muted">Comunicação</p>
-                    <ul class="list-inline social-buttons">
-                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
-                        {{--</li>--}}
-                        <li><a href="https://www.facebook.com/paloma.thais15" target="_blank"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="img/team/rafael.jpeg" class="img-responsive img-circle" alt="">
-                    <h4>Rafael Fernandes</h4>
-                    <p class="text-muted">Web Design</p>
-                    <ul class="list-inline social-buttons">
-
-                        <li><a href="https://www.facebook.com/rafael.fernandes.almeida" target="_blank"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -704,7 +657,7 @@
                 <ul class="list-inline social-buttons">
                     {{--<li><a href="#"><i class="fa fa-twitter"></i></a>--}}
                         {{--</li>--}}
-                        <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <li><a href="https://www.facebook.com/StartupMittel/" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         {{--<li><a href="#"><i class="fa fa-linkedin"></i></a>--}}
                         {{--</li>--}}
